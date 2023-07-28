@@ -1,0 +1,5 @@
+gpt4all==1.0.8
+fastapi==0.100.1
+uvicorn==0.22.0
+nltk==3.8.1
+sentencepiece==0.1.99

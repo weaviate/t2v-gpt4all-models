@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__
+models
+nltk_data
+.venv/
+.vscode/
