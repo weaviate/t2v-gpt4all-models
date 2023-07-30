@@ -1,23 +1,11 @@
-# from transformers import AutoConfig
+from gpt4all import Embed4All
 
 
 class Meta:
-    # config: AutoConfig
+    embedder: Embed4All
 
-    # def __init__(self, model_path):
-    #     self.config = AutoConfig.from_pretrained(model_path)
+    def __init__(self):
+        self.embedder = Embed4All()
 
     def get(self):
-        return {
-            'model': 'all-MiniLM-L6-v2'
-        }
-
-    # def getModelType(self):
-    #     return self.config.to_dict()['model_type']
-
-    # def get_architecture(self):
-    #     architecture = None
-    #     conf = self.config.to_dict()
-    #     if "architectures" in conf:
-    #         architecture = conf["architectures"][0]
-    #     return architecture
+        return self.embedder.gpt4all.config
