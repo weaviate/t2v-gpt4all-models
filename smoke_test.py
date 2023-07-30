@@ -37,22 +37,21 @@ class SmokeTest(unittest.TestCase):
         self.assertIsInstance(res.json(), dict)
 
     def test_vectorizing(self):
-        def try_to_vectorize(url):
-            print(f"url: {url}")
-            req_body = {'text': 'The London Eye is a ferris wheel at the River Thames.'}
+        def try_to_vectorize(text):
+            url = self.url + "/vectorize"
+            req_body = {'text': text}
 
             res = requests.post(url, json=req_body)
             resBody = res.json()
 
             self.assertEqual(200, res.status_code)
 
-            # below tests that what we deem a reasonable vector is returned. We are
-            # aware of 384 and 768 dim vectors, which should both fall in that
-            # range
+            self.assertEqual(resBody['text'], text)
             self.assertTrue(len(resBody['vector']) > 100)
+            self.assertTrue(resBody['dim'] > 0)
 
-        try_to_vectorize(self.url + "/vectors/")
-        try_to_vectorize(self.url + "/vectors")
+        try_to_vectorize('The London Eye is a ferris wheel at the River Thames.')
+        try_to_vectorize('Warsaw is capital of Poland')
 
 
 if __name__ == "__main__":
