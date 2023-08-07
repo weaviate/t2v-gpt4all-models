@@ -29,8 +29,8 @@ function push_tag() {
 
     echo "Tag & Push $tag, $tag_latest, $tag_git"
 
-    echo "Build linux/arm64, linux/amd64 docker images"
-    docker buildx build --platform=linux/arm64,linux/amd64 \
+    echo "Build linux/amd64 docker image"
+    docker buildx build --platform=linux/amd64 \
       --push \
       --tag "$tag_git" \
       --tag "$tag_latest" \
