@@ -1,4 +1,7 @@
-# gpt4all inference module (for Weaviate)
+# GPT4All inference module (for Weaviate)
+
+🎯 Overview
+-----------
 
 This is the the inference container which is used by the Weaviate
 `text2vec-gpt4all` module. You can download it directly from Dockerhub
