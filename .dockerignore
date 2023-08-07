@@ -1,5 +1,4 @@
 __pycache__
-models
-nltk_data
+.github
 .venv
 cicd
