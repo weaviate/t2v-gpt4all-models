@@ -28,17 +28,7 @@ function push_tag() {
     tag="$remote_repo:$model_name"
 
     echo "Tag & Push $tag, $tag_latest, $tag_git"
-
-    echo "Build linux/amd64 docker image"
     docker buildx build --platform=linux/amd64 \
-      --push \
-      --tag "$tag_git" \
-      --tag "$tag_latest" \
-      --tag "$tag" \
-      .
-
-    echo "Build windows/amd64 docker image"
-    docker buildx build --platform=windows/amd64 -f windows.Dockerfile \
       --push \
       --tag "$tag_git" \
       --tag "$tag_latest" \
